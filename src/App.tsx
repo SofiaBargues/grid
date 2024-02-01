@@ -1,8 +1,10 @@
+import CssGrid from "./components/CssGrid";
+
 function App() {
   return (
-    <>
-      <h1 className="text-red-500"> hello </h1>
-    </>
+    <div className="max-w-7xl mx-auto">
+      <CssGrid />
+    </div>
   );
 }
 
