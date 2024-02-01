@@ -8,6 +8,7 @@ function Card({
   item: {
     title: string;
     value: number;
+    url: string;
   };
   i: number;
   shape: "horizontal" | "vertical" | "square";
@@ -26,6 +27,7 @@ function Card({
           : ""
       }`}
     >
+      <img src={item.url} alt="Shoes" />
       <h2 className="text-xl text-gray-600">{item.title}</h2>
       <p className="font-bold text-2xl">{item.value}</p>
     </div>
