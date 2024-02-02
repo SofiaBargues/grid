@@ -1,4 +1,5 @@
 import { data } from "../data";
+import { cn } from "mxcn";
 
 function Card({
   item,
@@ -7,29 +8,38 @@ function Card({
 }: {
   item: {
     title: string;
-    value: number;
+    value: string;
     url: string;
   };
   i: number;
   shape: "horizontal" | "vertical" | "square";
 }) {
-  const boxStyle =
-    "bg-neutral-100 border-2 rounded-xl p-2 flex flex-col items-center justify-center";
-
   return (
     <div
       key={i}
-      className={`${boxStyle} ${
+      className={cn(
+        "card bg-base-100 shadow-xl",
         shape === "horizontal"
           ? "md:col-span-2"
           : shape === "vertical"
           ? "md:row-span-2"
           : ""
-      }`}
+      )}
+      style={{ width: "100%", height: "100%" }} // Establece el ancho y alto al 100%
     >
-      <img src={item.url} alt="Shoes" />
-      <h2 className="text-xl text-gray-600">{item.title}</h2>
-      <p className="font-bold text-2xl">{item.value}</p>
+      <figure style={{ width: "100%", height: "100%" }}>
+        {" "}
+        {/* Establece el ancho y alto al 100% */}
+        <img
+          src={item.url}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />{" "}
+        {/* Ajusta la imagen */}
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">{item.title}</h2>
+        <p className="font-bold">{item.value}</p>
+      </div>
     </div>
   );
 }
